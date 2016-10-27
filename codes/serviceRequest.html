@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+</ul>
+
+<br><br><br>
+<form method="POST" action="serviceRequest.php">
+<label>Please select the Service:</label><br><br>
+ <select name="service">
+
+	<option value="EM">Emergency management</option>
+	<option value="EOP">EOP:emergency operation plan</option>
+	<option value="BCP">Business continuity plan</option>
+	<option value="COOP">COOP:continuous of operation plan</option>
+	<option value="IPP">Infrastructure protection planning</option>
+	<option value="DRP">Disaster response planning</option>
+	<option value="HMP">Hazard mitigation planning</option>
+	<option value="HRP">Hazard recovery planning</option> 
+	<option value="PP">Preparedness planning</option>
+	<option value="HVAP">Hazard Vulnerabilities Assessment planning</option>
+	<option value="THRAP">Threat and Hazard Risk Assessment planning</option>
+	<option value="EDMP">Exercises and drills management planning</option>
+	<option value="WSA">Walk in security assessment</option>
+	<option value="IR">Incident Response</option>
+	<option value="EDME">Exercises and drills management evaluation</option>
+	<option value="IPE">Infrastructure protection evaluation</option>
+	<option value="DRE">Disaster response evaluation</option>
+	<option value="HME">Hazard mitigation evaluation</option>
+	<option value="HRE">Hazard recovery evaluation</option> 
+</select><br><br>
+<label>OID:</label><br>
+<input type="text" name="oid"><br><br>
+<input type="submit" name="request" value="Request">
+</form>
+
+</body>
+</html>
+

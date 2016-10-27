@@ -6,7 +6,11 @@ body {
     background-color: gray;
 }
 
-input[type=text],[type=password] {
+label {
+	color: rgb(44, 77, 129);
+}
+
+input[type=text],[type=password],select{
     padding: 6px 20px;
     margin: 2px 0;
     display: inline-block;
