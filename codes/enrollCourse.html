@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+</ul>
+
+<br><br><br>
+<form method="POST" action="enrollCourse.php">
+<label>Please select the Course:</label><br><br>
+	<select name="course">
+
+	<option value="CERT">CERT</option>
+	<option value="DLS">DLS:Disaster Life Support</option>
+	<option value="PIO">PIO:Public Information Officer</option>
+	<option value="DRIA">Disaster Rapid Initial Assessment</option>
+	<option value="CTP">Counter-terrorism procedures</option>
+	<option value="I300">ICS 300</option>
+	<option value="I400">ICS 400</option>
+	<option value="PFCID">Planning for children in disaster</option> 
+	<option value="FC1">FEMA Course:C1</option>
+	<option value="FC2">FEMA Course:C2</option>
+	<option value="FC3">FEMA Course:C3</option>
+	<option value="FC4">FEMA Course:C4</option>
+	<option value="FC5">FEMA Course:C5</option>
+	<option value="FC6">FEMA Course:C6</option>
+	<option value="FC7">FEMA Course:C7</option>
+	<option value="FC8">FEMA Course:C8</option>
+	<option value="FC9">FEMA Course:C9</option>
+	<option value="FC10">FEMA Course:C10</option>
+	
+</select><br><br>
+<label>TID:</label><br>
+<input type="text" name="tid"><br><br><hr>
+<h3>Payment Information</h3><br>
+<label>Card Number:</label><br>
+<input type="text" name="card"><br><br>
+<label>Card Type:</label><br>
+<input type="text" name="cardtype"><br><br>
+<label>Billing Adress:</label><br>
+<input type="text" name="address"><br><br>
+<input type="submit" name="enroll" value="Enroll">
+</form>
+
+</body>
+</html>
+
