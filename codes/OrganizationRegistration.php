@@ -1,10 +1,10 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])!="")
-{
-	header("Location: home.php");
-}
-include_once 'dbconnect.php';
+//session_start();
+//if(isset($_SESSION['user'])!="")
+//{
+//	header("Location: home.php");
+//}
+//include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
 {
@@ -34,7 +34,7 @@ if(isset($_POST['btn-signup']))
 
 	if($count == 0){
 
-		if(mysql_query("INSERT INTO ORGANIZATION(oid,password,orgName,sector,location,phone) VALUES('$oid','$password','$orgName','$sector','location','phone')"))
+		if(mysql_query("INSERT INTO ORGANIZATION(oid,orgName,sector,location,phone,password) VALUES('$oid','$orgName','$sector','$location','$phone','$password')"))
 		{
 			?>
 			<script>alert('successfully registered ');</script>
@@ -86,7 +86,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="index.php">Sign In Here</a></td>
+<td><a href="login.php">Sign In Here</a></td>
 </tr>
 </table>
 </form>
