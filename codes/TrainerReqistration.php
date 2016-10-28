@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])!="")
-{
-	header("Location: home.php");
-}
+
 include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
@@ -23,14 +19,14 @@ if(isset($_POST['btn-signup']))
 	$tlname = trim($tlname);
 
 	// id exist or not
-	$query = "SELECT TID FROM TAINER WHERE TID='$TID'";
+	$query = "SELECT tid FROM trainee WHERE tid='$tid'";
 	$result = mysql_query($query);
 
 	$count = mysql_num_rows($result); // if id not found then register
 
 	if($count == 0){
 
-		if(mysql_query("INSERT INTO TRAINER(tid,password,phone,tfname,tlname) VALUES('$tid','password','$phone','$tfname','tlname')"))
+		if(mysql_query("INSERT INTO trainee(tid,tfname,tlname,phone,password) VALUES('$tid','tfname','$tlname','$phone','password')"))
 		{
 			?>
 			<script>alert('successfully registered ');</script>
@@ -45,7 +41,7 @@ if(isset($_POST['btn-signup']))
 	}
 	else{
 			?>
-			<script>alert('Sorry phone ID already taken ...');</script>
+			<script>alert('Sorry ID already taken ...');</script>
 			<?php
 	}
 
@@ -80,7 +76,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="index.php">Sign In Here</a></td>
+<td><a href="login.php">Sign In Here</a></td>
 </tr>
 </table>
 </form>
