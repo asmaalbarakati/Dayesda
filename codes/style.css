@@ -7,7 +7,7 @@ body {
 }
 
 label {
-	color: rgb(44, 77, 129);
+	color: Black;
 }
 
 input[type=text],[type=password],select{
