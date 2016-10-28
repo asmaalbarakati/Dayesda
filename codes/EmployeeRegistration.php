@@ -1,15 +1,8 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])!="")
-{
-	header("Location: home.php");
-}
-include_once 'dbconnect.php';
 
+//include_once 'dbconnect.php';
 if(isset($_POST['btn-signup']))
 {
-
-
 	$eid = mysql_real_escape_string($_POST['eid']);
 	$password = md5(mysql_real_escape_string($_POST['password']));
 	$fname = md5(mysql_real_escape_string($_POST['fname']));
@@ -37,7 +30,7 @@ if(isset($_POST['btn-signup']))
 
 	if($count == 0){
 
-		if(mysql_query("INSERT INTO EMPLOYEE(eid,password,fname,lname,address,phone,title) VALUES('$eid','password','$fname','$lname','address','Phone','title')"))
+		if(mysql_query("INSERT INTO EMPLOYEE(eid,fname,lname,jobtitle,address,phone,password) VALUES('$eid','$fname','$title','$address','$Phone','$password')"))
 		{
 			?>
 			<script>alert('successfully registered ');</script>
@@ -90,7 +83,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="index.php">Sign In Here</a></td>
+<td><a href="login.php">Sign In Here</a></td>
 </tr>
 </table>
 </form>
