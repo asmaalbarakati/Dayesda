@@ -1,10 +1,10 @@
 <?php
-//session_start();
-//if(isset($_SESSION['user'])!="")
-//{
-//	header("Location: home.php");
-//}
-//include_once 'dbconnect.php';
+session_start();
+if(isset($_SESSION['user'])!="")
+{
+	header("Location: home.html");
+}
+include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
 {
@@ -12,16 +12,16 @@ if(isset($_POST['btn-signup']))
 
 	$oid = mysql_real_escape_string($_POST['oid']);
 	$password = mysql_real_escape_string($_POST['password']);
-	$orgName = md5(mysql_real_escape_string($_POST['orgname']));
-	$sector = md5(mysql_real_escape_string($_POST['sector']));
-	$location = md5(mysql_real_escape_string($_POST['location']));
+	$orgName = mysql_real_escape_string($_POST['orgName']);
+	$sector = mysql_real_escape_string($_POST['sector']);
+	$location = mysql_real_escape_string($_POST['location']);
 	$phone = mysql_real_escape_string($_POST['phone']);
 	
 	
 //removing extra spaces
 	$oid = trim($oid);
 	$password = trim($password);
-	$orgNane = trim($orgName);
+	$orgName = trim($orgName);
 	$sector = trim($sector);
 	$location = trim($location);
     $phone = trim($phone);
@@ -34,7 +34,7 @@ if(isset($_POST['btn-signup']))
 
 	if($count == 0){
 
-		if(mysql_query("INSERT INTO ORGANIZATION(oid,orgName,sector,location,phone,password) VALUES('$oid','$orgName','$sector','$location','$phone','$password')"))
+		if(mysql_query("INSERT INTO ORGANIZATION(oid,password,orgName,sector,location,phone) VALUES('$oid','$password','$orgName','$sector','$location','$phone')"))
 		{
 			?>
 			<script>alert('successfully registered ');</script>
@@ -49,13 +49,13 @@ if(isset($_POST['btn-signup']))
 	}
 	else{
 			?>
-			<script>alert('Sorry phone ID already taken ...');</script>
+			<script>alert('Sorry Organization ID already taken ...');</script>
 			<?php
 	}
 
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -70,10 +70,10 @@ if(isset($_POST['btn-signup']))
 <tr>
 <td><input type="text" name="oid" placeholder="Organization ID" required /></td>
 </tr>
-<td><input type="password" name="oid" placeholder="Your Password" required /></td>
+<td><input type="password" name="password" placeholder="Your Password" required /></td>
 </tr>
 <tr>
-<td><input type="text" name="orgNameame" placeholder="Organization Name" required /></td>
+<td><input type="text" name="orgName" placeholder="Organization Name" required /></td>
 </tr>
 <tr>
 <td><input type="text" name="sector" placeholder="Sector" required /></td>
@@ -86,7 +86,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="login.php">Sign In Here</a></td>
+<td><a href="login.html">Sign In Here</a></td>
 </tr>
 </table>
 </form>

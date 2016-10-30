@@ -1,15 +1,22 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])!="")
+{
+	header("Location: home.html");
+}
+include_once 'dbconnect.php';
 
-//include_once 'dbconnect.php';
 if(isset($_POST['btn-signup']))
 {
+
+
 	$eid = mysql_real_escape_string($_POST['eid']);
-	$password = md5(mysql_real_escape_string($_POST['password']));
-	$fname = md5(mysql_real_escape_string($_POST['fname']));
-	$lname = md5(mysql_real_escape_string($_POST['lname']));
-	$address = md5(mysql_real_escape_string($_POST['address']));
+	$password = mysql_real_escape_string($_POST['password']);
+	$fname = mysql_real_escape_string($_POST['fname']);
+	$lname = mysql_real_escape_string($_POST['lname']);
+	$address = mysql_real_escape_string($_POST['address']);
 	$Phone = mysql_real_escape_string($_POST['phone']);
-	$title = md5(mysql_real_escape_string($_POST['title']));
+	$title = mysql_real_escape_string($_POST['title']);
 	//dnt think we need to insert into salary during registration
 	
 	
@@ -30,7 +37,7 @@ if(isset($_POST['btn-signup']))
 
 	if($count == 0){
 
-		if(mysql_query("INSERT INTO EMPLOYEE(eid,fname,lname,jobtitle,address,phone,password) VALUES('$eid','$fname','$title','$address','$Phone','$password')"))
+		if(mysql_query("INSERT INTO EMPLOYEE(eid,password,fname,lname,address,phone,jobtitle) VALUES('$eid','$password','$fname','$lname','$address','$Phone','$title')"))
 		{
 			?>
 			<script>alert('successfully registered ');</script>
@@ -51,7 +58,7 @@ if(isset($_POST['btn-signup']))
 
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -64,7 +71,7 @@ if(isset($_POST['btn-signup']))
 <form method="post">
 <table align="center" width="30%" border="0">
 <tr>
-<td><input type="text" name="oid" placeholder="Employee ID" required /></td>
+<td><input type="text" name="eid" placeholder="Employee ID" required /></td>
 </tr>
 <td><input type="password" name="password" placeholder="Your Password" required /></td>
 <tr>
@@ -83,7 +90,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="login.php">Sign In Here</a></td>
+<td><a href="login.html">Sign In Here</a></td>
 </tr>
 </table>
 </form>

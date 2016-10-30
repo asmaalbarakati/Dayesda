@@ -6,6 +6,14 @@ body {
     background-color: gray;
 }
 
+table {
+	
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+	
+}
+
 label {
 	color: Black;
 }
