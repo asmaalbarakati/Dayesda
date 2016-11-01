@@ -17,7 +17,7 @@ if(isset($_POST['btn-signup']))
 	$address = mysql_real_escape_string($_POST['address']);
 	$Phone = mysql_real_escape_string($_POST['phone']);
 	$title = mysql_real_escape_string($_POST['title']);
-	//dnt think we need to insert into salary during registration
+	//employee will not insert the salary during registration, some of employee related to that will update.
 	
 	
 //removing extra spaces
@@ -66,6 +66,13 @@ if(isset($_POST['btn-signup']))
 
 </head>
 <body>
+
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a class="active" href="about.html">About</a></li>    
+</ul>
+<br><br><br>
+
 <center>
 <div id="login-form">
 <form method="post">
@@ -90,7 +97,7 @@ if(isset($_POST['btn-signup']))
 <td><button type="submit" name="btn-signup">Sign Me Up</button></td>
 </tr>
 <tr>
-<td><a href="login.html">Sign In Here</a></td>
+<td><a href="login.php">Sign In Here</a></td>
 </tr>
 </table>
 </form>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a class="active" href="about.html">About</a></li>
+</ul>
+
+<br><br><br>
+
+<form method="POST" action="CompletionDelete.php">
+<h3>This service can be done by manager only</h3>
+<label>Employee User Name:</label><br>
+<input type="text" name="eid"><br><br>
+<label>Trainee User Name:</label><br>
+<input type="text" name="tid"><br><br>
+<h4>Course Information to be deleted :</h4>
+<label>CourseID:</label><br>
+<input type="text" name="cid"><br>
+<label>Year of Taking:</label><br>
+<input type="text" name="yr"><br><br>
+<input type="submit" name="delete" value="Delete">
+</form>
+
+</body>
+</html>

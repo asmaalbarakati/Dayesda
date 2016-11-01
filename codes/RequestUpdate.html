@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a class="active" href="about.html">About</a></li>
+</ul>
+
+<br><br><br>
+
+<form method="POST" action="RequestUpdate.php">
+<h3>This service can be done by manager only</h3>
+<label>Employee User Name:</label><br>
+<input type="text" name="eid"><br><br>
+<label>Request Number:</label><br>
+<input type="text" name="RN"><br><br>
+<label>Price:</label><br>
+<input type="text" name="price"><br><br>
+<input type="submit" name="update" value="Update Request">
+</form>
+
+</body>
+</html>

@@ -63,6 +63,12 @@ if(isset($_POST['btn-signup']))
 
 </head>
 <body>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a class="active" href="about.html">About</a></li>    
+</ul>
+<br><br><br>
+
 <center>
 <div id="login-form">
 <form method="post">
