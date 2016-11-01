@@ -5,6 +5,19 @@ include_once 'dbconnect.php';
 
 if(isset($_POST['request']))
 {
+	
+	$oid = trim(mysql_real_escape_string($_POST['oid']));
+	
+	//check if the Organization already exist, if not display error message, register first..
+	$query1 = "SELECT * FROM organization WHERE oid='$oid'";
+	
+	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
+		require("header.html");	
+		echo ("<br><br><center><h2>Sorry.. your user name not found, you need to register first..</h2></center>");
+		echo ("<br><br><center><a href='OrganizationRegistration.php'>Register here</a></center>");
+	}	
+	else
+	{
 
     $oid = mysql_real_escape_string($_POST['oid']);
 	$oid = trim($oid);
@@ -19,7 +32,8 @@ if(isset($_POST['request']))
 		
 	require("header.html");	
     echo ("<br><br><center><h2> your request is processing, we will contact you soon..</h2></center>");	
-}	
+   }
+}     
 else
 	
 echo "Error";	
