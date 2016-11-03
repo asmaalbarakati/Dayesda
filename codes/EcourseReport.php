@@ -19,7 +19,7 @@ if(isset($_POST['get']))
 	{
 	
 		//Got all the courses that are teaching by this specific Employee
-		$query2 = "SELECT crname FROM Course WHERE eid='$eid'";
+		$query2 = "SELECT crname FROM Course WHERE eid='$eid' order by crname ";
 		$result = mysql_query($query2);
 	
 		if(@mysql_num_rows(mysql_query($query2)) != 0){
