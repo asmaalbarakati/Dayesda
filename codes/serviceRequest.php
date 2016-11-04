@@ -5,7 +5,7 @@ include_once 'dbconnect.php';
 
 if(isset($_SESSION['user'])!="")
 {
-	header("Location: home.php");
+	header("Location:login.html");
 }
 
 if(isset($_POST['request']))
