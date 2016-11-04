@@ -1,6 +1,12 @@
 <?php
 
+session_start();
 include_once 'dbconnect.php';
+
+if(isset($_SESSION['user'])!="")
+{
+	header("Location: home.php");
+}
 
 if(isset($_POST['update']))
 {
