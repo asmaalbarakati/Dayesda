@@ -3,14 +3,14 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user'])!="")
 {
-	header("Location: home.php");
+	header("Location: home.html");
 }
 
 if(isset($_POST['enroll']))
 {
-    $tid = trim(mysql_real_escape_string($_POST['tid']));
+    $tid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 	//check if the Trainee already exist, if not display error message, register first..
 	$query1 = "SELECT * FROM Trainee WHERE tid='$tid'";
@@ -22,7 +22,7 @@ if(isset($_POST['enroll']))
 	}	
 	else
 	{
-    $tid = trim(mysql_real_escape_string($_POST['tid']));
+    $tid =  trim(mysql_real_escape_string($_SESSION['user']));
 	$crChoice = trim(mysql_real_escape_string($_POST['course']));
 	$year = date("Y"); 
 	$card = trim(mysql_real_escape_string($_POST["card"]));

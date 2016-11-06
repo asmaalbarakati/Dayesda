@@ -3,15 +3,15 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user'])!="")
 {
-	header("Location:login.html");
+	header("Location:home.html");
 }
 
 if(isset($_POST['request']))
 {
 	
-	$oid = trim(mysql_real_escape_string($_POST['oid']));
+	$oid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 	//check if the Organization already exist, if not display error message, register first..
 	$query1 = "SELECT * FROM organization WHERE oid='$oid'";
@@ -24,7 +24,7 @@ if(isset($_POST['request']))
 	else
 	{
 
-    $oid = mysql_real_escape_string($_POST['oid']);
+    $oid = trim(mysql_real_escape_string($_SESSION['user']));
 	$oid = trim($oid);
 	$serChoice = mysql_real_escape_string($_POST['service']);
 	$serChoice = trim($serChoice);

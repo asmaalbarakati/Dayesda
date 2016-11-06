@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once 'dbconnect.php';
 
 if(isset($_POST['logIn']))
@@ -22,9 +22,10 @@ if(isset($_POST['logIn']))
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='OrganizationRegistration.php'>Register here</a></center>");
 	}	
-	else
+	else{
+		$_SESSION['user'] = $oid;
 		require("organization.html");	
-	}
+	}}
 	else if($val=="tra"){
 		
 		$tid = trim(mysql_real_escape_string($_POST['name']));
@@ -39,9 +40,10 @@ if(isset($_POST['logIn']))
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='TraineeReqistration.php'>Register here</a></center>");
 	}	
-	else
+	else{
+		$_SESSION['user'] = $tid;
 		require("Trainee.html");	
-	}
+	}}
 	else if($val=="emp"){
 		
 		$eid = trim(mysql_real_escape_string($_POST['name']));
@@ -56,9 +58,10 @@ if(isset($_POST['logIn']))
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='EmployeeRegistration.php'>Register here</a></center>");
 	}	
-	else
-		require("employee.html");		
-	}
+	else{
+		$_SESSION['user'] = $eid;
+		require("employee.html");
+	}}
   }//end radiobutton options 	
 }
 else

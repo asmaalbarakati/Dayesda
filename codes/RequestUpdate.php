@@ -28,7 +28,7 @@ if(isset($_POST['update']))
 		//Delete the course according to the form input. 
 		$query2 = "UPDATE REQUEST SET price=$price WHERE reqnumber=$rn";
 	
-		if(mysql_query($query2) == true){
+		if(mysql_query($query2) == true && mysql_affected_rows()==1){
 		
 			//Display the Report..	
 			require("header.html");	

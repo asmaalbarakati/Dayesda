@@ -3,15 +3,15 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user'])!="")
 {
-	header("Location: home.php");
+	header("Location: home.html");
 }
 
 if(isset($_POST['get']))
 {
 
-    $tid = trim(mysql_real_escape_string($_POST['tid']));
+    $tid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 	//check if the trainee already exist, if not display error message, register first..
 	$query1 = "SELECT * FROM Trainee WHERE tid='$tid'";
