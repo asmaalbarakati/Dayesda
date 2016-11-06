@@ -3,15 +3,15 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user'])!="")
 {
-	header("Location: login.html");
+	header("Location: home.html");
 }
 
 if(isset($_POST['get']))
 {
 
-    $eid = trim(mysql_real_escape_string($_POST['eid']));
+    $eid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 	//check if the Employee already exist, if not display error message, register first..
 	$query1 = "SELECT * FROM Employee WHERE eid='$eid'";
@@ -47,8 +47,10 @@ if(isset($_POST['get']))
 <?php	
 	    }//while
 		}
-		else
-			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");		
+		else{
+			require("header.html");	
+			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");
+		}
 	}
 }	
 else
