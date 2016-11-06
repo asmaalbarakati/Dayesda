@@ -26,7 +26,7 @@ if(isset($_POST['delete']))
 		//Delete the rquest according to the number. 
 		$query2 = "Delete FROM request WHERE reqnumber=$rn";
 	
-		if(mysql_query($query2) == true){
+		if(mysql_query($query2) == true && mysql_affected_rows()==1){
 		
 			//Display the Report..	
 			require("header.html");	

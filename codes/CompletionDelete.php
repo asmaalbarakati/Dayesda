@@ -28,7 +28,7 @@ if(isset($_POST['delete']))
 		//Delete the course according to the form input. 
 		$query2 = "Delete FROM completion WHERE yearofcom=$y and crid='$cid' and tid='$tid'";
 	
-		if(mysql_query($query2) == true){
+		if(mysql_query($query2) == true && mysql_affected_rows()==1){
 		
 			//Display the Report..	
 			require("header.html");	
