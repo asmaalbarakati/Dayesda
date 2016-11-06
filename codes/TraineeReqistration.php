@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])!="")
-{
-	header("Location: home.html");
-}
+
 include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
