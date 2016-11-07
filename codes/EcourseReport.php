@@ -3,7 +3,7 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(!isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user']))
 {
 	header("Location: home.html");
 }
@@ -12,16 +12,6 @@ if(isset($_POST['get']))
 {
 
     $eid = trim(mysql_real_escape_string($_SESSION['user']));
-	
-	//check if the Employee already exist, if not display error message, register first..
-	$query1 = "SELECT * FROM Employee WHERE eid='$eid'";
-	
-	if(@mysql_num_rows(mysql_query($query1)) == 0){
-		require("header.html");	
-		echo ("<br><br><center><h2>Sorry.. your user name not found, you need to register first..</h2></center>");
-	}	
-	else
-	{
 	
 		//Got all the courses that are teaching by this specific Employee
 		$query2 = "SELECT crname FROM Course WHERE eid='$eid' order by crname ";
@@ -51,7 +41,7 @@ if(isset($_POST['get']))
 			require("header.html");	
 			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");
 		}
-	}
+	
 }	
 else
   echo "Error in Form";	
