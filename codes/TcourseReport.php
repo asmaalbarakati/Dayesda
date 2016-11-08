@@ -45,9 +45,11 @@ if(isset($_POST['get']))
 <?php	
 	    }//while
 		}
-		else
-			echo ("<br><br><center><h2>Sorry, you did not enrolled in any courses..</h2></center>");		
-	
+		else{
+			require("header.html");	
+			echo ("<br><br><center><h2>Sorry, you did not enrolled in any courses..</h2></center>");
+		}			
+ echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");	
 }	
 else
   echo "Error in Form";	

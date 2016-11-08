@@ -24,6 +24,7 @@ if(isset($_POST['request']))
 		
 	require("header.html");	
     echo ("<br><br><center><h2> your request is processing, we will contact you soon..</h2></center>");	
+	echo ("<br><br><center><a href='organization.html'>return to Organization page</a></center>");	
    
 }     
 else

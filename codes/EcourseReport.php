@@ -10,7 +10,6 @@ if(!isset($_SESSION['user']))
 
 if(isset($_POST['get']))
 {
-
     $eid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 		//Got all the courses that are teaching by this specific Employee
@@ -20,7 +19,7 @@ if(isset($_POST['get']))
 		if(@mysql_num_rows(mysql_query($query2)) != 0){
 		
 		//Display the Report..	
-		require("header.html");	
+		require("header.html");			
 		echo("<br><br><br>")
 ?>
 		<table  border="2">
@@ -32,16 +31,17 @@ if(isset($_POST['get']))
 			$name=$record[0];
 		?>	
 		<tr>
-					<td><?php echo $name; ?></td> 					
+			<td><?php echo $name; ?></td> 					
 		</tr>
 <?php	
 	    }//while
+		echo ("<center><a href='employee.html'>return to employee page</a></center>");	
 		}
 		else{
 			require("header.html");	
 			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");
+			echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
 		}
-	
 }	
 else
   echo "Error in Form";	

@@ -8,5 +8,6 @@ if(!isset($_SESSION['user'])!="")
 else
 {
 	unset($_SESSION['user']);
+	header("Location: home.html");
 }
 ?>

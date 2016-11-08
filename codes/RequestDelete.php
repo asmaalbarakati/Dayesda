@@ -19,7 +19,6 @@ if(isset($_POST['delete']))
 	if(@mysql_num_rows(mysql_query($query1)) == 0){
 		require("header.html");	
 		echo ("<br><br><center><h2>Sorry.. this service can just be done by Manager..</h2></center>");
-		echo ("<br><br><center><a href='home.html'>Home</a></center>");
 	}	
 	else
 	{
@@ -39,6 +38,7 @@ if(isset($_POST['delete']))
 			echo ("<br><br><center><h2>No request have been found with this number..</h2></center>");	
 		}
 	}
+	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
 }	
 else
   echo "Error in Form";	
