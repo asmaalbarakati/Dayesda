@@ -3,15 +3,15 @@
 session_start();
 include_once 'dbconnect.php';
 
-if(isset($_SESSION['user'])!="")
+if(!isset($_SESSION['user']))
 {
-	header("Location: home.php");
+	header("Location: home.html");
 }
 
 if(isset($_POST['update']))
 {
 
-    $eid = trim(mysql_real_escape_string($_POST['eid']));
+    $eid = trim(mysql_real_escape_string($_SESSION['user']));
 	$rn = intval(trim(mysql_real_escape_string($_POST['RN'])));
 	$price= trim(mysql_real_escape_string($_POST['price']));
 	
@@ -28,7 +28,7 @@ if(isset($_POST['update']))
 		//Delete the course according to the form input. 
 		$query2 = "UPDATE REQUEST SET price=$price WHERE reqnumber=$rn";
 	
-		if(mysql_query($query2) == true && mysql_affected_rows()==1){
+		if(mysql_query($query2)&& mysql_affected_rows()==1){
 		
 			//Display the Report..	
 			require("header.html");	
@@ -38,6 +38,7 @@ if(isset($_POST['update']))
 		else
 			echo ("<br><br><center><h2>No Request have been found with this information..</h2></center>");		
 	}
+	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
 }	
 else
   echo "Error in Form";	

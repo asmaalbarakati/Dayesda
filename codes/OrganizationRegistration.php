@@ -1,5 +1,4 @@
 <?php
-
 include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
@@ -48,7 +47,6 @@ if(isset($_POST['btn-signup']))
 			<script>alert('Sorry Organization ID already taken ...');</script>
 			<?php
 	}
-
 }
 ?>
 <!DOCTYPE html>
@@ -85,10 +83,7 @@ if(isset($_POST['btn-signup']))
 <td><input type="phone" name="phone" placeholder="Phone" required /></td>
 </tr>
 <tr>
-<td><button type="submit" name="btn-signup">Sign Me Up</button></td>
-</tr>
-<tr>
-<td><a href="login.html">Sign In Here</a></td>
+<td><input type="submit" name="btn-signup" value="Sign in"></input></td>
 </tr>
 </table>
 </form>
