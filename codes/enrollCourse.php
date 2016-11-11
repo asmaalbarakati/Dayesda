@@ -31,7 +31,7 @@ if(isset($_POST['enroll']))
 		or die (mysql_error());	
 		
 	require("header.html");	
-    echo ("<br><br><center><h2> You are registerd in the course.. Good Luck</h2></center>");	
+    echo ("<br><br><center><h2> You are registerd in the course.. See you soon..</h2></center>");	
 	echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
 }	
 else

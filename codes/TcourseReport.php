@@ -14,7 +14,7 @@ if(isset($_POST['get']))
     $tid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 		//Got all the courses of this specific Trainee
-		$query2 = "SELECT crname,yearofcom,fname,lname FROM Trainee t,Course c, COMPLETION cm, Employee e WHERE t.tid='$tid' and t.tid=cm.tid and cm.crid=c.crid and c.eid=e.eid";
+		$query2 = "SELECT crname,yearofcom,fname,lname FROM Trainee t,Course c, COMPLETION cm, Employee e WHERE t.tid='$tid' and t.tid=cm.tid and cm.crid=c.crid and c.eid=e.eid order by yearofcom";
 		$result = mysql_query($query2);
 	
 		if(@mysql_num_rows(mysql_query($query2)) != 0){
