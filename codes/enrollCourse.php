@@ -19,20 +19,27 @@ if(isset($_POST['enroll']))
 	$ct = trim(mysql_real_escape_string($_POST["cardtype"]));
 	
 	//check if the card already exist, if not insert into the payemtn relation first..
-	$query2 = "SELECT * FROM PAYMENT WHERE cardnumber=$card";
-    if(@mysql_num_rows(mysql_query($query2)) != 1){	//not exist	insert it..
-	$query3 = "INSERT INTO PAYMENT(cardnumber,type,address) values('$card','$ct','$add')";
-	$result = mysql_query($query3)
-	or die (mysql_error());}
+	$query1 = "SELECT * FROM PAYMENT WHERE cardnumber=$card";
+    if(@mysql_num_rows(mysql_query($query1)) != 1){	//not exist	insert it..
+		$query2 = "INSERT INTO PAYMENT(cardnumber,type,address) values('$card','$ct','$add')";
+		$result = mysql_query($query2)
+		or die (mysql_error());
+	}
 		
 	//insert into the completion relation second..	
-	$query4 = "INSERT INTO COMPLETION(yearofcom,crid,tid,cardnumber) values('$year','$crChoice','$tid','$card')";
-	$result = mysql_query($query4)
-		or die (mysql_error());	
-		
-	require("header.html");	
-    echo ("<br><br><center><h2> You are registerd in the course.. See you soon..</h2></center>");	
-	echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
+	$query3 = "INSERT INTO COMPLETION(yearofcom,crid,tid,cardnumber) values('$year','$crChoice','$tid','$card')";
+
+	//check in case if trainee try to register in the same year.. or for any error in execution..
+	if( mysql_query($query3)&& mysql_affected_rows()==1){	
+		require("header.html");	
+		echo ("<br><br><center><h2> You are registerd in the course.. See you soon..</h2></center>");	
+		echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
+	}
+	else{
+		require("header.html");	
+		echo ("<br><br><center><h2>Sorry.. Error is happend..</h2></center>");	
+		echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
+	}
 }	
 else
 	echo "Error";	

@@ -28,7 +28,7 @@ if(isset($_POST['delete']))
 		//Delete the course according to the form input. 
 		$query2 = "Delete FROM completion WHERE yearofcom=$y and crid='$cid' and tid='$tid'";
 	
-		if(mysql_query($query2) == true && mysql_affected_rows()==1){
+		if(mysql_query($query2)&& mysql_affected_rows()==1){
 		
 			//Display the Report..	
 			require("header.html");	
@@ -37,7 +37,7 @@ if(isset($_POST['delete']))
 		}
 		else{
 			require("header.html");	
-			echo ("<br><br><center><h2>No Course have been found with this information..</h2></center>");
+			echo ("<br><br><center><h2>Sorry.. No record found with these information..</h2></center>");
 		}		
 	}
 	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	

@@ -12,23 +12,25 @@ if(isset($_POST['request']))
 {
 	
     $oid = trim(mysql_real_escape_string($_SESSION['user']));
-	$oid = trim($oid);
-	$serChoice = mysql_real_escape_string($_POST['service']);
-	$serChoice = trim($serChoice);
+	$serChoice =trim(mysql_real_escape_string($_POST['service']));
 	$today = date("Y.m.d"); 
 	
 	//insert into the request relation..
 	$query = "INSERT INTO REQUEST(date,sid,oid) values('$today','$serChoice','$oid')";
-	$result = mysql_query($query)
-		or die (mysql_error());
-		
-	require("header.html");	
-    echo ("<br><br><center><h2> your request is processing, we will contact you soon..</h2></center>");	
-	echo ("<br><br><center><a href='organization.html'>return to Organization page</a></center>");	
-   
+
+	//execute the query and display error message for any error in execution.
+	if( mysql_query($query)&& mysql_affected_rows()==1){	
+		require("header.html");	
+		echo ("<br><br><center><h2> your request is processing, we will contact you soon..</h2></center>");	
+		echo ("<br><br><center><a href='organization.html'>return to Organization page</a></center>");	
+	}
+	else{
+		require("header.html");	
+		echo ("<br><br><center><h2>Sorry.. Error is happened.. request the service again..</h2></center>");	
+		echo ("<br><br><center><a href='organization.html'>return to Organization page</a></center>");	
+	}   
 }     
-else
-	
+else	
 	echo "Error";	
 		
 ?>

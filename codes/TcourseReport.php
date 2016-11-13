@@ -13,15 +13,15 @@ if(isset($_POST['get']))
 
     $tid = trim(mysql_real_escape_string($_SESSION['user']));
 	
-		//Got all the courses of this specific Trainee
-		$query2 = "SELECT crname,yearofcom,fname,lname FROM Trainee t,Course c, COMPLETION cm, Employee e WHERE t.tid='$tid' and t.tid=cm.tid and cm.crid=c.crid and c.eid=e.eid order by yearofcom";
-		$result = mysql_query($query2);
+	//Get all the courses of this specific Trainee
+	$query2 = "SELECT crname,yearofcom,fname,lname FROM Course c, COMPLETION cm, Employee e WHERE cm.tid='$tid' and cm.crid=c.crid and c.eid=e.eid order by yearofcom";
+	$result = mysql_query($query2);
 	
-		if(@mysql_num_rows(mysql_query($query2)) != 0){
+	if(@mysql_num_rows(mysql_query($query2)) != 0){
 		
-		//Display the Report..	
-		require("header.html");	
-		echo("<br><br><br>")
+	//Display the Report..	
+	require("header.html");	
+	echo("<br><br><br>")
 ?>
 		<table  border="2">
         <tr>
@@ -43,13 +43,14 @@ if(isset($_POST['get']))
 					
 		</tr>
 <?php	
-	    }//while
-		}
-		else{
+	 }//while
+	}
+	else{
 			require("header.html");	
 			echo ("<br><br><center><h2>Sorry, you did not enrolled in any courses..</h2></center>");
-		}			
- echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");	
+		}
+		
+	echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");	
 }	
 else
   echo "Error in Form";	

@@ -35,8 +35,10 @@ if(isset($_POST['update']))
 			echo("<br><br><br>");
 			echo ("<br><br><center><h2>Price Updated Successfully..</h2></center>");		   
 		}
-		else
-			echo ("<br><br><center><h2>No Request have been found with this information..</h2></center>");		
+		else{
+			require("header.html");	
+			echo ("<br><br><center><h2>No Request found with these information..</h2></center>");	
+		}
 	}
 	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
 }	

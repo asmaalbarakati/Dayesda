@@ -4,8 +4,7 @@ include_once 'dbconnect.php';
 
 if(isset($_POST['logIn']))
 {
-	if(isset($_POST['radiobutton'])){
-		
+	
 	$val=$_POST["radiobutton"];
 	
 	if($val=="org"){
@@ -18,7 +17,7 @@ if(isset($_POST['logIn']))
 	
 	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
 		require("header.html");	
-		echo ("<br><br><center><h2>Sorry.. your user name not found or incorrect password, log in again or register first..</h2></center>");
+		echo ("<br><br><center><h2>Sorry.. User ID not found or incorrect password, log in again or register first..</h2></center>");
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='OrganizationRegistration.php'>Register here</a></center>");
 	}	
@@ -36,7 +35,7 @@ if(isset($_POST['logIn']))
 	
 	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
 		require("header.html");	
-		echo ("<br><br><center><h2>Sorry.. your user name not found or incorrect password, log in again or register first..</h2></center>");
+		echo ("<br><br><center><h2>Sorry.. User ID not found or incorrect password, log in again or register first..</h2></center>");
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='TraineeReqistration.php'>Register here</a></center>");
 	}	
@@ -54,16 +53,16 @@ if(isset($_POST['logIn']))
 	
 	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
 		require("header.html");	
-		echo ("<br><br><center><h2>Sorry.. your user name not found or incorrect password, log in again or register first..</h2></center>");
+		echo ("<br><br><center><h2>Sorry.. User ID not found or incorrect password, log in again or register first..</h2></center>");
 		echo ("<br><br><center><a href='login.html'>login</a></center>");
 		echo ("<br><br><center><a href='EmployeeRegistration.php'>Register here</a></center>");
 	}	
 	else{
 		$_SESSION['user'] = $eid;
 		require("employee.html");
-	}}
-  }//end radiobutton options 	
+	}
+	}//end radiobutton options 	
 }
 else
-	echo "Error";	
+	header("Location: home.html");
 ?>

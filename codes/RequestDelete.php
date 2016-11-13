@@ -31,7 +31,7 @@ if(isset($_POST['delete']))
 			//Display the Report..	
 			require("header.html");	
 			echo("<br><br><br>");
-			echo ("<br><br><center><h2>Deleted the Request -# ".$rn." - Successfully..</h2></center>");		   
+			echo ("<br><br><center><h2>Deleted the Request # ".$rn." - Successfully..</h2></center>");		   
 		}
 		else{
 			require("header.html");	

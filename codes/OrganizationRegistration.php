@@ -1,4 +1,5 @@
 <?php
+
 include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
@@ -22,7 +23,7 @@ if(isset($_POST['btn-signup']))
     $phone = trim($phone);
 
 	// id  exist or not
-	$query = "SELECT OID FROM ORGANIZATION WHERE OID='$oid'";
+	$query = "SELECT oid FROM ORGANIZATION WHERE oid='$oid'";
 	$result = mysql_query($query);
 
 	$count = mysql_num_rows($result); // if id not found then register

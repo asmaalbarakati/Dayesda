@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once 'dbconnect.php';
 
 if(isset($_POST['btn-signup']))
