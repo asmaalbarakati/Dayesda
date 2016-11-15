@@ -41,7 +41,7 @@ if(isset($_POST['btn-signup']))
 	}
 	else{
 			?>
-			<script>alert('Sorry phone ID already taken ...');</script>
+			<script>alert('Sorry TRAINEE ID already taken ...');</script>
 			<?php
 	}
 

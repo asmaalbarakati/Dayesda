@@ -35,7 +35,7 @@ if(isset($_POST['delete']))
 		}
 		else{
 			require("header.html");	
-			echo ("<br><br><center><h2>No request have been found with this number..</h2></center>");	
+			echo ("<br><br><center><h2>No request found with this number..</h2></center>");	
 		}
 	}
 	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
