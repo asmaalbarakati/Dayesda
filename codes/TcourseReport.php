@@ -17,7 +17,7 @@ if(isset($_POST['get']))
 	$query2 = "SELECT crname,yearofcom,fname,lname FROM Course c, COMPLETION cm, Employee e WHERE cm.tid='$tid' and cm.crid=c.crid and c.eid=e.eid order by yearofcom";
 	$result = mysql_query($query2);
 	
-	if(@mysql_num_rows(mysql_query($query2)) != 0){
+	if(@mysql_num_rows($result) != 0){
 		
 	//Display the Report..	
 	require("header.html");	

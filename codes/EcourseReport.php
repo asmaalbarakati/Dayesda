@@ -16,7 +16,7 @@ if(isset($_POST['get']))
 		$query2 = "SELECT crname FROM Course WHERE eid='$eid' order by crname ";
 		$result = mysql_query($query2);
 	
-		if(@mysql_num_rows(mysql_query($query2)) != 0){
+		if(@mysql_num_rows($result) != 0){
 		
 		//Display the Report..	
 		require("header.html");			
