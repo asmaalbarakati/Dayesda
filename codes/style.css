@@ -10,8 +10,20 @@ table {
 	
     display: table;
     border-collapse: separate;
-    border-spacing: 2px;
+    border-spacing: 3px;
 	
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: maroon;
+    color: white;
 }
 
 #butlink{
