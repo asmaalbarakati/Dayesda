@@ -22,7 +22,7 @@ if(isset($_POST['request']))
 	if( mysql_query($query)&& mysql_affected_rows()==1){	
 		require("header.html");	
 		echo ("<br><br><center><h2> your request is processing, we will contact you soon..</h2></center>");	
-		echo ("<br><br><center><a id='butlink' href='organization.html'>return to Organization page</a></center>");	
+		echo ("<br><br><center><a id='butlink' href='organization.html'>Return to Organization page</a></center>");	
 	}
 	else{
 		require("header.html");	
