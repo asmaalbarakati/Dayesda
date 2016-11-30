@@ -33,12 +33,12 @@ if(isset($_POST['enroll']))
 	if( mysql_query($query3)&& mysql_affected_rows()==1){	
 		require("header.html");	
 		echo ("<br><br><center><h2> You are registerd in the course.. See you soon..</h2></center>");	
-		echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
+		echo ("<br><br><center><a id='butlink' href='Trainee.html'>Return to Trainee page</a></center>");
 	}
 	else{
 		require("header.html");	
 		echo ("<br><br><center><h2>Sorry.. Error is happend..</h2></center>");	
-		echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");
+		echo ("<br><br><center><a id='butlink' href='Trainee.html'>Return to Trainee page</a></center>");
 	}
 }	
 else

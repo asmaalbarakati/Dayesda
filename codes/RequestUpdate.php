@@ -40,7 +40,7 @@ if(isset($_POST['update']))
 			echo ("<br><br><center><h2>No Request found with these information..</h2></center>");	
 		}
 	}
-	echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
+	echo ("<br><br><center><a id='butlink' href='employee.html'>Return to employee page</a></center>");	
 }	
 else
   echo "Error in Form";	

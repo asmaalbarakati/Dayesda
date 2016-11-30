@@ -22,7 +22,7 @@ if(isset($_POST['get']))
 		require("header.html");			
 		echo("<br><br><br>")
 ?>
-		<table  border="2">
+		<table  border="2" align="center" width="40%">
         <tr>
         <th>Course Name</th>
         </tr>
@@ -35,13 +35,13 @@ if(isset($_POST['get']))
 		</tr>
 <?php	
 	    }//while
-		echo ("<center><a href='employee.html'>return to employee page</a></center>");	
 		}
 		else{
 			require("header.html");	
 			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");
-			echo ("<br><br><center><a href='employee.html'>return to employee page</a></center>");	
 		}
+		echo ("<br><br><center><a id='butlink' href='employee.html'>Return to employee page</a></center>");	
+		echo ("<br><br>");	
 }	
 else
   echo "Error in Form";	

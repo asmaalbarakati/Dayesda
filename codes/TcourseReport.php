@@ -23,7 +23,7 @@ if(isset($_POST['get']))
 	require("header.html");	
 	echo("<br><br><br>")
 ?>
-		<table  border="2">
+		<table  border="2" align="center" width="60%">
         <tr>
         <th>Course Name</th>
         <th>Year</th>
@@ -50,10 +50,11 @@ if(isset($_POST['get']))
 	}
 	else{
 			require("header.html");	
-			echo ("<br><br><center><h2>Sorry, you did not enrolled in any courses..</h2></center>");
+			echo ("<br><br><center><h2>Sorry, you did not enroll in any courses..</h2></center>");
 		}
 		
-	echo ("<br><br><center><a href='Trainee.html'>return to Trainee page</a></center>");	
+	echo ("<br><br><center><a id='butlink' href='Trainee.html'>Return to Trainee page</a></center>");
+	echo ("<br><br>");	
 }	
 else
   echo "Error in Form";	

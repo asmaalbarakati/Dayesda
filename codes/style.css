@@ -14,13 +14,6 @@ table {
 	
 }
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
 th {
     background-color: maroon;
     color: white;
@@ -45,7 +38,7 @@ label {
 	color: Black;
 }
 
-input[type=text],[type=password],select{
+input[type=text],[type=password],[type=phone],select{
     padding: 6px 20px;
     margin: 2px 0;
     display: inline-block;
