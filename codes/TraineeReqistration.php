@@ -66,7 +66,7 @@ if(isset($_POST['btn-signup']))
 <form method="post">
 <table align="center" width="30%" border="0">
 <tr>
-<td><input type="text" name="tid" placeholder="Trainer ID" required /></td>
+<td><input type="text" name="tid" placeholder="Trainee ID" required /></td>
 </tr>
 <td><input type="password" name="password" placeholder="Your Password" required /></td>
 </tr>
