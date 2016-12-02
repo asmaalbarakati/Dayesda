@@ -3,6 +3,7 @@
 session_start();
 include_once 'dbconnect.php';
 
+//check if the user is set or not..
 if(!isset($_SESSION['user']))
 {
 	header("Location: home.html");
@@ -31,12 +32,12 @@ if(isset($_POST['enroll']))
 
 	//check in case if trainee try to register in the same year.. or for any error in execution..
 	if( mysql_query($query3)&& mysql_affected_rows()==1){	
-		require("header.html");	
+		require("header.php");	
 		echo ("<br><br><center><h2> You are registerd in the course.. See you soon..</h2></center>");	
 		echo ("<br><br><center><a id='butlink' href='Trainee.html'>Return to Trainee page</a></center>");
 	}
 	else{
-		require("header.html");	
+		require("header.php");	
 		echo ("<br><br><center><h2>Sorry.. Error is happend..</h2></center>");	
 		echo ("<br><br><center><a id='butlink' href='Trainee.html'>Return to Trainee page</a></center>");
 	}

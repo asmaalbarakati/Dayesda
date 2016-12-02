@@ -3,7 +3,7 @@
 
 include_once 'dbconnect.php';
 			
-	require("header.html");
+	require("header.php");
 	$query = "SELECT sname,sdescription FROM SERVICE";
 	$result = mysql_query($query)
 		or die (mysql_error());

@@ -3,6 +3,7 @@
 session_start();
 include_once 'dbconnect.php';
 
+//check if the user is set or not..
 if(!isset($_SESSION['user']))
 {
 	header("Location: home.html");
@@ -19,7 +20,7 @@ if(isset($_POST['get']))
 		if(@mysql_num_rows($result) != 0){
 		
 		//Display the Report..	
-		require("header.html");			
+		require("header.php");			
 		echo("<br><br><br>")
 ?>
 		<table  border="2" align="center" width="40%">
@@ -37,8 +38,8 @@ if(isset($_POST['get']))
 	    }//while
 		}
 		else{
-			require("header.html");	
-			echo ("<br><br><center><h2>you don't not teach any courses..</h2></center>");
+			require("header.php");	
+			echo ("<br><br><center><h2>you don't not teach any course..</h2></center>");
 		}
 		echo ("<br><br><center><a id='butlink' href='employee.html'>Return to employee page</a></center>");	
 		echo ("<br><br>");	
