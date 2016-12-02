@@ -11,7 +11,7 @@ include_once 'dbconnect.php';
 		echo("<br><br>");
 		while($record = mysql_fetch_array($result)){
 			echo ("<h4>$record[0]:</h4>");
-			echo ("<p>$record[1]</p> <br>");
+			echo ("<p>$record[1]</p><br><hr><br>");
 		}	
 		
 ?>

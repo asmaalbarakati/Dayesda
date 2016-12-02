@@ -18,8 +18,8 @@ if(isset($_POST['logIn']))
 	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
 		require("header.html");	
 		echo ("<br><br><center><h2>Sorry.. User ID not found or incorrect password, log in again or register first..</h2></center>");
-		echo ("<br><br><center><a href='login.html'>login</a></center>");
-		echo ("<br><br><center><a href='OrganizationRegistration.php'>Register here</a></center>");
+		echo ("<br><br><center><a id='butlink' href='login.html'>login</a></center>");
+		echo ("<br><br><center><a id='butlink' href='OrganizationRegistration.php'>Register here</a></center>");
 	}	
 	else{
 		$_SESSION['user'] = $oid;
@@ -36,8 +36,8 @@ if(isset($_POST['logIn']))
 	if(@mysql_num_rows(mysql_query($query1))!= 1 ){
 		require("header.html");	
 		echo ("<br><br><center><h2>Sorry.. User ID not found or incorrect password, log in again or register first..</h2></center>");
-		echo ("<br><br><center><a href='login.html'>login</a></center>");
-		echo ("<br><br><center><a href='TraineeReqistration.php'>Register here</a></center>");
+		echo ("<br><br><center><a id='butlink' href='login.html'>login</a></center>");
+		echo ("<br><br><center><a id='butlink' href='TraineeReqistration.php'>Register here</a></center>");
 	}	
 	else{
 		$_SESSION['user'] = $tid;
