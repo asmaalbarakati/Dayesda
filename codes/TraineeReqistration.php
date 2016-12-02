@@ -79,7 +79,7 @@ if(isset($_POST['btn-signup']))
 <td><input type="text" name="tlname" placeholder="Your Last Name" required /></td>
 </tr>
 <tr>
-<td><input type="submit" name="btn-signup" value="Sign in"></input></td>
+<td><input type="submit" name="btn-signup" value="Sign up"></input></td>
 </tr>
 </table>
 </form>
