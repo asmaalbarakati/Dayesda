@@ -25,7 +25,7 @@ if(isset($_POST['logIn']))
 		$_SESSION['user'] = $oid;
 		require("organization.html");	
 	}}
-	else if($val=="tra"){
+	elseif($val=="tra"){
 		
 		$tid = trim(mysql_real_escape_string($_POST['name']));
 		$pw = trim(mysql_real_escape_string($_POST['pw']));
@@ -43,7 +43,7 @@ if(isset($_POST['logIn']))
 		$_SESSION['user'] = $tid;
 		require("Trainee.html");	
 	}}
-	else if($val=="emp"){
+	else{
 		
 		$eid = trim(mysql_real_escape_string($_POST['name']));
 		$pw = trim(mysql_real_escape_string($_POST['pw']));
