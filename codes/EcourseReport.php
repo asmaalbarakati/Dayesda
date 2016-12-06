@@ -14,13 +14,13 @@ if(isset($_POST['get']))
     $eid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 		//Got all the courses that are teaching by this specific Employee
-		$query2= "SELECT c.crname, cm.yearofcom, count( * ) AS totaltrainees
+		$query1= "SELECT c.crname, cm.yearofcom, count( * ) AS totaltrainees
 		FROM Course c, completion cm
 		WHERE c.eid = '$eid'
 		AND cm.crid = c.crid
 		GROUP BY c.crid, c.crname, cm.yearofcom
 		ORDER BY cm.yearofcom";
-		$result = mysql_query($query2);
+		$result = mysql_query($query1);
 	
 		if(@mysql_num_rows($result) != 0){
 		
