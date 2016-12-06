@@ -14,7 +14,12 @@ if(isset($_POST['get']))
     $eid = trim(mysql_real_escape_string($_SESSION['user']));
 	
 		//Got all the courses that are teaching by this specific Employee
-		$query2 = "SELECT crname FROM Course WHERE eid='$eid' order by crname ";
+		$query2= "SELECT c.crname, cm.yearofcom, count( * ) AS totaltrainees
+		FROM Course c, completion cm
+		WHERE c.eid = '$eid'
+		AND cm.crid = c.crid
+		GROUP BY c.crid, c.crname, cm.yearofcom
+		ORDER BY cm.yearofcom";
 		$result = mysql_query($query2);
 	
 		if(@mysql_num_rows($result) != 0){
@@ -26,13 +31,19 @@ if(isset($_POST['get']))
 		<table  border="2" align="center" width="40%">
         <tr>
         <th>Course Name</th>
+		<th>Year</th>
+		<th>Total Trainees</th>
         </tr>
 		<?php
 			while($record = mysql_fetch_array($result)){
 			$name=$record[0];
+			$y=$record[1];
+			$total=$record[2];
 		?>	
 		<tr>
-			<td><?php echo $name; ?></td> 					
+			<td><?php echo $name; ?></td> 
+			<td><?php echo $y; ?></td> 
+			<td><?php echo $total; ?></td> 
 		</tr>
 <?php	
 	    }//while
